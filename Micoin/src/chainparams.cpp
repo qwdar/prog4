@@ -51,7 +51,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "start test fork 26/08/2021 15/00";
+    const char* pszTimestamp = "start test fork 17/09/2021 15/00";
     const CScript genesisOutputScript = CScript() << ParseHex("04a82d13fd6e6f775bdd8167edd14e7e9864d7dde1795d7268f177fa73d9a4dcf7b5193e7638c9b73ccaff9952f4cba8a59354719065ed833c09f2ec99f5dd1043") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -110,10 +110,10 @@ public:
         m_assumed_blockchain_size = 22;
         m_assumed_chain_state_size = 3;
 
-        genesis = CreateGenesisBlock(1629979200, 209281, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1631880000, 2047049, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0xd8621c7ce8b7201bfe603480cba0d3b4eed8291e5b5c74ff77502725e5335715"));
-        assert(genesis.hashMerkleRoot == uint256S("0x6c38cdc0f3d0a94c4d47e431b41d5e251d821e09a587e01a03b7446b18d0d9d3"));
+        assert(consensus.hashGenesisBlock == uint256S("0x8e859c7fa76ac9bc9113b9f755540793f55f7b369a77e1f1319e56a6a0a634bd"));
+        assert(genesis.hashMerkleRoot == uint256S("2e3133263b6a252af3dd6f5387569400aee47bb79a88b4b42ab35e506113b0f9"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
@@ -139,7 +139,7 @@ public:
 
         checkpointData = {
             {
-                {  0, uint256S("0xd8621c7ce8b7201bfe603480cba0d3b4eed8291e5b5c74ff77502725e5335715")},
+                {  0, uint256S("0x8e859c7fa76ac9bc9113b9f755540793f55f7b369a77e1f1319e56a6a0a634bd")},
             }
         };
 		/* Я меняю Эти изначальные зачения на 0
@@ -213,10 +213,10 @@ public:
         m_assumed_blockchain_size = 2;
         m_assumed_chain_state_size = 1;
 
-        genesis = CreateGenesisBlock(1629979201, 699267, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1631880001, 1983462, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x75400ad8071737ed9d0b0deaab961c68a47b78ea7744bc5f84481db66362594d"));
-        assert(genesis.hashMerkleRoot == uint256S("0x6c38cdc0f3d0a94c4d47e431b41d5e251d821e09a587e01a03b7446b18d0d9d3"));
+        assert(consensus.hashGenesisBlock == uint256S("0x8e33a610494a46a8c2baa9c190365040412be8144e64a67af41ce3ffe5b02edc "));
+        assert(genesis.hashMerkleRoot == uint256S("2e3133263b6a252af3dd6f5387569400aee47bb79a88b4b42ab35e506113b0f9"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -240,7 +240,7 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("75400ad8071737ed9d0b0deaab961c68a47b78ea7744bc5f84481db66362594d")},
+                {0, uint256S("8e33a610494a46a8c2baa9c190365040412be8144e64a67af41ce3ffe5b02edc ")},
             }
         };
 
@@ -311,10 +311,10 @@ public:
 
         UpdateVersionBitsParametersFromArgs(args);
 
-        genesis = CreateGenesisBlock(1629979202, 1, 0x207fffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1631880002, 0, 0x207fffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0xa0cb0f7db5da0b642c6287b05926bfc3b1bac9bd39d788c3d5493b90592268f8"));
-        assert(genesis.hashMerkleRoot == uint256S("0x6c38cdc0f3d0a94c4d47e431b41d5e251d821e09a587e01a03b7446b18d0d9d3"));
+        assert(consensus.hashGenesisBlock == uint256S("0x3ad18449979e6213ed203098e97f26d8e752b11a36a219f6baa93b07e85ecc91    "));
+        assert(genesis.hashMerkleRoot == uint256S("2e3133263b6a252af3dd6f5387569400aee47bb79a88b4b42ab35e506113b0f9"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
@@ -325,7 +325,7 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("a0cb0f7db5da0b642c6287b05926bfc3b1bac9bd39d788c3d5493b90592268f8")},
+                {0, uint256S("3ad18449979e6213ed203098e97f26d8e752b11a36a219f6baa93b07e85ecc91    ")},
             }
         };
 
